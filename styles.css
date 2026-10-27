@@ -1,0 +1,175 @@
+/* --- Variables --- */
+:root {
+  --color-naranja: #f28123;
+  --color-blanco: #ffffff;
+  --fuente-principal: 'Open Sans', sans-serif;
+}
+
+/* --- Estilos Base --- */
+body {
+  font-family: var(--fuente-principal);
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Bloque Hero --- */
+.hero {
+  background-image: url('assets/wood.jpg'); 
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden; 
+}
+
+/* Overlay oscuro para que resalte el texto */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+/* Z-index para que el contenido quede sobre el overlay */
+.hero__nav,
+.hero__content,
+.hero__grapes {
+  position: relative;
+  z-index: 2;
+}
+
+/* Navegación */
+.hero__nav {
+  padding-top: 20px;
+}
+
+.hero__logo-img {
+  width: 140px;
+  /* Borde redondeado por si el logo tiene fondo */
+  border-radius: 5px; 
+}
+
+.hero__menu .hero__link {
+  color: var(--color-blanco) !important;
+  font-weight: 600;
+  margin: 0 10px;
+  font-size: 0.95rem;
+}
+
+.hero__menu .hero__link:hover,
+.hero__menu .hero__link--active {
+  color: var(--color-naranja) !important;
+}
+
+.hero__icons {
+  color: var(--color-blanco);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Contenido Central */
+.hero__content {
+  flex-grow: 1;
+  display: flex;
+}
+
+.hero__content .row {
+  min-height: calc(100vh - 100px); 
+}
+
+.hero__subtitle {
+  color: var(--color-naranja);
+  letter-spacing: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.hero__title {
+  color: var(--color-blanco);
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 40px;
+}
+
+/* Botones */
+.hero__btn {
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.hero__btn--solid {
+  background-color: var(--color-naranja);
+  color: var(--color-blanco);
+  border: 2px solid var(--color-naranja);
+}
+
+.hero__btn--solid:hover {
+  background-color: transparent;
+  color: var(--color-naranja);
+}
+
+.hero__btn--outline {
+  background-color: transparent;
+  color: var(--color-blanco);
+  border: 2px solid var(--color-blanco);
+}
+
+.hero__btn--outline:hover {
+  background-color: var(--color-blanco);
+  color: #333;
+}
+
+/* --- Uvas --- */
+.hero__grapes {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 2;
+  /* Estilos para que las fotos con fondo se vean como tarjetas */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.hero__grapes--left {
+  bottom: 20px;
+  left: 20px;
+  background-image: url('assets/uvasmoradas.png');
+}
+
+.hero__grapes--right {
+  top: 100px;
+  right: 20px;
+  background-image: url('assets/uvasverdes.png');
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 991px) {
+  .hero__title { 
+    font-size: 3rem; 
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__title { 
+    font-size: 2.5rem; 
+  }
+  .hero__grapes { 
+    display: none; 
+  }
+  .hero__icons { 
+    margin-top: 15px; 
+    justify-content: center; 
+  }
+}
